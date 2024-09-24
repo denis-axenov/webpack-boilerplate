@@ -2,13 +2,13 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Sass = require('sass');
 
-
-const isProduction = (argv) => {
-    return argv.mode === 'production';
-}
 
 module.exports = (env, argv) => {
+
+    const buildFolder = path.resolve(__dirname, 'dist');
+    const isProduction = argv.mode === 'production';
 
     return {
         target: 'web',
@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
         ],
         output: {
             filename: 'bundle.js',
-            path: path.resolve(__dirname, 'dist')
+            path: buildFolder
         },
         resolve: {
             extensions: [
@@ -57,7 +57,7 @@ module.exports = (env, argv) => {
                         {
                             loader: 'sass-loader',
                             options: {
-                                implementation: require('sass')
+                                implementation: Sass
                             },
                         },
                     ],
@@ -87,23 +87,23 @@ module.exports = (env, argv) => {
             new HtmlWebpackPlugin({
                 template: './src/templates/index.html',
             }),
-            ...(isProduction(argv) ? [
+            ...(isProduction ? [
                 new CleanWebpackPlugin({
                     cleanOnceBeforeBuildPatterns: [
-                        path.resolve(__dirname, 'dist')
+                        buildFolder
                     ]
                 })
             ] : [])
         ],
         optimization: {
-            minimize: isProduction(argv)
+            minimize: isProduction
         },
         stats: 'minimal',
         devServer: {
             static: {
-                directory: path.join(__dirname, 'dist'),
+                directory: buildFolder
             },
-            compress: isProduction(argv),
+            compress: isProduction,
             port: 9000,
             watchFiles: [
                 './src/*.html'
