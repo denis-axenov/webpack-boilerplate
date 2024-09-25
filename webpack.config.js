@@ -7,31 +7,32 @@ const Sass = require('sass');
 
 module.exports = (env, argv) => {
 
-    const buildFolder = path.resolve(__dirname, 'dist');
+    const resolveDir = (dir) => path.resolve(__dirname, dir);
+    const buildFolder = resolveDir('dist');
     const isProduction = argv.mode === 'production';
 
     return {
         target: 'web',
         devtool: !isProduction && 'source-map',
         entry: [
-            './src/scripts/main.js',
-            './src/styles/main.scss'
+            resolveDir('src/scripts/main.js'),
+            resolveDir('src/styles/main.scss')
         ],
         output: {
             filename: 'bundle.js',
             path: buildFolder,
             devtoolModuleFilenameTemplate: info =>
-                `file:///${path.resolve(__dirname, info.resourcePath).replace(/\\/g, '/')}`
+                `file:///${resolveDir(info.resourcePath).replace(/\\/g, '/')}`
         },
         resolve: {
             extensions: [
                 '.js'
             ],
             alias: {
-                '@images': path.resolve(__dirname, 'src/images'),
-                '@fonts': path.resolve(__dirname, 'src/fonts'),
-                '@scripts': path.resolve(__dirname, 'src/scripts'),
-                '@styles': path.resolve(__dirname, 'src/styles'),
+                '@images': resolveDir('src/images'),
+                '@fonts': resolveDir('src/fonts'),
+                '@scripts': resolveDir('src/scripts'),
+                '@styles': resolveDir('src/styles'),
             }
         },
         module: {
@@ -74,7 +75,7 @@ module.exports = (env, argv) => {
                 {
                     test: /\.(woff|woff2|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
                     type: 'asset/resource',
-                    exclude: path.resolve(__dirname, 'src/images'),
+                    exclude: resolveDir('src/images'),
                     generator: {
                         filename: 'fonts/[name][ext]'
                     }
@@ -82,7 +83,7 @@ module.exports = (env, argv) => {
                 {
                     test: /\.(png|jpe?g|gif|svg)$/i,
                     type: 'asset/resource',
-                    exclude: path.resolve(__dirname, 'src/fonts'),
+                    exclude: resolveDir('src/fonts'),
                     generator: {
                         filename: 'images/[name][ext]'
                     }
@@ -94,7 +95,7 @@ module.exports = (env, argv) => {
                 filename: 'bundle.css'
             }),
             new HtmlWebpackPlugin({
-                template: './src/templates/index.html',
+                template: resolveDir('src/templates/index.html'),
                 inject: 'body'
             }),
             ...(isProduction ? [
