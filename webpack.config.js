@@ -95,6 +95,7 @@ module.exports = (env, argv) => {
             }),
             new HtmlWebpackPlugin({
                 template: './src/templates/index.html',
+                inject: 'body'
             }),
             ...(isProduction ? [
                 new CleanWebpackPlugin({
@@ -120,5 +121,5 @@ module.exports = (env, argv) => {
             hot: true,
             open: true
         }
-    };
-};
+    }
+}
