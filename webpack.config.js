@@ -19,7 +19,9 @@ module.exports = (env, argv) => {
         ],
         output: {
             filename: 'bundle.js',
-            path: buildFolder
+            path: buildFolder,
+            devtoolModuleFilenameTemplate: info =>
+                `file:///${path.resolve(__dirname, info.resourcePath).replace(/\\/g, '/')}`
         },
         resolve: {
             extensions: [
