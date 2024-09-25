@@ -12,7 +12,7 @@ module.exports = (env, argv) => {
 
     return {
         target: 'web',
-        devtool: 'source-map',
+        devtool: !isProduction && 'source-map',
         entry: [
             './src/scripts/main.js',
             './src/styles/main.scss'
