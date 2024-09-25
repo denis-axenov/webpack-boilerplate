@@ -24,7 +24,13 @@ module.exports = (env, argv) => {
         resolve: {
             extensions: [
                 '.js'
-            ]
+            ],
+            alias: {
+                '@images': path.resolve(__dirname, 'src/images'),
+                '@fonts': path.resolve(__dirname, 'src/fonts'),
+                '@scripts': path.resolve(__dirname, 'src/scripts'),
+                '@styles': path.resolve(__dirname, 'src/styles'),
+            }
         },
         module: {
             rules: [

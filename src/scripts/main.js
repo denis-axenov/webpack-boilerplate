@@ -1,4 +1,4 @@
-import Module from './module';
+import Module from '@scripts/module';
 
 document.addEventListener('DOMContentLoaded', () => {
 
