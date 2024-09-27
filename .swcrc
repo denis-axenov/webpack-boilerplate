@@ -14,7 +14,7 @@
       "importMeta": false
     },
     "transform": null,
-    "target": "es5",
+    "target": "es2022",
     "loose": false,
     "externalHelpers": false,
     "keepClassNames": false
