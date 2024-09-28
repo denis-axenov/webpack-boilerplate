@@ -1,8 +1,10 @@
 const path = require('path');
+const Sass = require('sass');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Sass = require('sass');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 
 module.exports = (env, argv) => {
@@ -98,6 +100,12 @@ module.exports = (env, argv) => {
                 template: resolveDir('src/templates/index.html'),
                 inject: 'body'
             }),
+            ...(isProduction || env.lint ? [
+                new StylelintPlugin(),
+                new ESLintPlugin({
+                    configType: 'flat'
+                }),
+            ] : []),
             ...(isProduction ? [
                 new CleanWebpackPlugin({
                     cleanOnceBeforeBuildPatterns: [
