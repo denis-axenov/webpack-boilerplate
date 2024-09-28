@@ -1,3 +1,7 @@
+@use "@styles/helpers/vars";
+@use "@styles/helpers/mixins" with (
+  $defaultDuration: .5s
+);
 
 h1 {
   display: flex;
@@ -5,4 +9,7 @@ h1 {
   align-items: center;
   flex-direction: column;
   font-size: 30px;
+  color: vars.$colorPrimary;
+
+  @include mixins.transition()
 }
