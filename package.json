@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack serve --mode=development",
     "watch": "webpack --mode=development --watch",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "eslint": "eslint src/scripts",
+    "eslint:fix": "eslint src/scripts --fix"
   },
   "repository": {
     "type": "git",
@@ -24,11 +26,14 @@
     "url": "https://github.com/denis-axenov/webpack-boilerplate/issues"
   },
   "devDependencies": {
+    "@eslint/js": "^9.11.1",
     "@swc/core": "^1.7.26",
     "autoprefixer": "^10.4.20",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",
     "cssnano": "^7.0.6",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.1",
     "postcss": "^8.4.47",
