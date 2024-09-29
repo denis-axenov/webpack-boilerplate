@@ -1,4 +1,12 @@
-@use '@styles/helpers/reset';
+@use "@styles/helpers/reset";
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("@fonts/OpenSans-Medium.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
 
 body {
   display: flex;
@@ -7,4 +15,5 @@ body {
   height: 100vh;
   flex-direction: column;
   background: #fff;
+  font-family: "Open Sans", system-ui;
 }
