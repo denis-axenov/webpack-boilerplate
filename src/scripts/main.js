@@ -1,9 +1,9 @@
-import Module from '@scripts/module';
+import Module from "@scripts/module";
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     new Module({
-        param1: '1',
-        param2: '2'
+        param1: 1,
+        param2: 2
     });
 });
