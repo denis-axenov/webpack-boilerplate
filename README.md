@@ -12,6 +12,7 @@ tools for linting, asset handling, and production optimization.
 - **HTML Template**: Generates an HTML file based on a template using `html-webpack-plugin`.
 - **Source Maps**: Enabled in development mode for easier debugging.
 - **Hot Module Replacement**: Integrated for fast development.
+- **Unit Testing**: Jest is integrated for JavaScript unit testing.
 
 ## Installation
 
@@ -92,6 +93,32 @@ npm run lint:fix
 ```
 
 This will apply auto-fixes where possible for both JavaScript (ESLint) and SCSS (Stylelint) files.
+
+### Testing with Jest
+#### Running Unit Tests
+Jest is configured for running unit tests. To run tests:
+
+```bash
+npm run test
+```
+
+This command will execute all test files in the `__tests__/` directory or any file with a `.test.js` or `.spec.js` extension.
+
+#### Running Tests in Watch Mode
+To continuously run tests as files change:
+
+```bash
+npm run test:watch
+```
+This will re-run the tests every time you make changes to the codebase.
+
+#### Generating Coverage Report
+To generate a coverage report for your tests:
+
+```bash
+npm run test:coverage
+```
+This will create a coverage report in the `coverage/` directory, showing how much of the code is covered by tests.
 
 ## Repository
 

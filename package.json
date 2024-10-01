@@ -14,7 +14,9 @@
     "build": "webpack --mode=production",
     "lint": "eslint src/scripts && stylelint src/styles",
     "lint:fix": "eslint src/scripts --fix && stylelint src/styles --fix",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collect-coverage"
   },
   "repository": {
     "type": "git",
