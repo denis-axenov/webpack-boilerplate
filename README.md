@@ -122,7 +122,7 @@ This will create a coverage report in the `coverage/` directory, showing how muc
 
 ## Repository
 
-URL: [Webpack Boilerplate](https://github.com/denis-axenov/webpack-boilerplate)
+[Webpack Boilerplate](https://github.com/denis-axenov/webpack-boilerplate)
 
 ## Issues
 
