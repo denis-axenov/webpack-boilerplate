@@ -12,8 +12,8 @@
     "watch": "webpack --mode=development --watch",
     "watch:lint": "webpack --mode=development --watch --env lint",
     "build": "webpack --mode=production",
-    "lint": "eslint src/scripts && stylelint src/styles",
-    "lint:fix": "eslint src/scripts --fix && stylelint src/styles --fix",
+    "lint": "eslint src/scripts && stylelint src/styles/**/*.scss",
+    "lint:fix": "eslint src/scripts --fix && stylelint src/styles/**/*.scss --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --collect-coverage"
