@@ -34,7 +34,7 @@ module.exports = (env, argv) => {
                 '@images': resolveDir('src/images'),
                 '@fonts': resolveDir('src/fonts'),
                 '@scripts': resolveDir('src/scripts'),
-                '@styles': resolveDir('src/styles'),
+                '@styles': resolveDir('src/styles')
             }
         },
         module: {
@@ -51,28 +51,34 @@ module.exports = (env, argv) => {
                     use: [
                         {
                             loader: MiniCssExtractPlugin.loader
-                        }, {
+                        },
+                        {
                             loader: 'css-loader',
+                            options: {
+                                sourceMap: isProduction
+                            }
                         },
                         {
                             loader: 'postcss-loader',
                             options: {
+                                sourceMap: isProduction,
                                 postcssOptions: {
                                     plugins: [
                                         'autoprefixer',
-                                        'cssnano',
-                                        'postcss-preset-env'
+                                        'postcss-preset-env',
+                                        ...(isProduction ? ['cssnano'] : [])
                                     ]
-                                },
-                            },
+                                }
+                            }
                         },
                         {
                             loader: 'sass-loader',
                             options: {
+                                sourceMap: isProduction,
                                 implementation: Sass
-                            },
-                        },
-                    ],
+                            }
+                        }
+                    ]
                 },
                 {
                     test: /\.(woff|woff2|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
