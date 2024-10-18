@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Webpack bundler",
   "main": "./src/scripts/main.js",
-  "engines": {
-    "node": "20.17.0"
-  },
   "scripts": {
     "dev": "webpack serve --mode=development",
     "dev:lint": "webpack serve --mode=development --env lint",
@@ -57,6 +54,7 @@
     "postcss-scss": "^4.0.9",
     "sass": "^1.79.4",
     "sass-loader": "^16.0.2",
+    "scss-toolkit": "^1.0.2",
     "style-loader": "^4.0.0",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1",

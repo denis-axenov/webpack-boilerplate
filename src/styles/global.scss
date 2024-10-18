@@ -1,4 +1,5 @@
-@use "@styles/helpers/reset";
+@use "scss-toolkit/mixins/effect";
+@use "scss-toolkit/reset";
 
 @font-face {
   font-family: "Open Sans";
@@ -16,4 +17,6 @@ body {
   flex-direction: column;
   background: #fff;
   font-family: "Open Sans", system-ui;
+
+  @include effect.transition();
 }

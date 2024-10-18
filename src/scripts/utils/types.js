@@ -22,6 +22,10 @@ export const isArray = (param) => {
     return Array.isArray(param);
 };
 
+export const isFunction = (param) => {
+    return typeof param === 'function';
+};
+
 export const isObject = (param) => {
     return typeof param === 'object' && !isNull(param) && !isArray(param);
 };
