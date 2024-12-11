@@ -1,0 +1,13 @@
+$defaultProperty: all !default;
+$defaultDuration: .3s !default;
+$defaultTiming: ease !default;
+
+@mixin transition(
+  $property: $defaultProperty,
+  $duration: $defaultDuration,
+  $timing: $defaultTiming
+) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+}
