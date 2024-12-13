@@ -1,7 +1,7 @@
 export default class Module {
     constructor(moduleConfig) {
 
-        if (typeof moduleConfig !== 'object' || moduleConfig === null || Array.isArray(moduleConfig)) {
+        if (Object.prototype.toString.call(moduleConfig) !== '[object Object]') {
             throw new Error('Parameter must be an object');
         }
 
