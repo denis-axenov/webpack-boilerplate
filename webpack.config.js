@@ -1,7 +1,6 @@
 import path from 'path';
 import * as Sass from 'sass';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import StylelintPlugin from 'stylelint-webpack-plugin';
@@ -22,7 +21,8 @@ export default (env, argv) => {
         ],
         output: {
             filename: 'bundle.js',
-            path: buildFolder
+            path: buildFolder,
+            clean: true
         },
         resolve: {
             extensions: [
@@ -106,13 +106,6 @@ export default (env, argv) => {
                 new ESLintPlugin({
                     configType: 'flat'
                 }),
-            ] : []),
-            ...(isProduction ? [
-                new CleanWebpackPlugin({
-                    cleanOnceBeforeBuildPatterns: [
-                        buildFolder
-                    ]
-                })
             ] : [])
         ],
         optimization: {
