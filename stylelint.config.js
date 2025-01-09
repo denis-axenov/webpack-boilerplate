@@ -36,4 +36,4 @@ export default {
         "scss/operator-no-newline-before": true,
         "scss/operator-no-unspaced": true
     }
-}
+};
