@@ -1,10 +1,12 @@
-import js from "@eslint/js";
+import eslint from "@eslint/js";
 import globals from "globals";
 
 
 export default [
     {
-        ...js.configs.recommended,
+        plugins: {
+            ...eslint.configs.recommended
+        },
         files: [
             "src/scripts/**/*.js"
         ],
