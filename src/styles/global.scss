@@ -18,8 +18,6 @@ body {
   justify-content: center;
   height: 100vh;
   flex-direction: column;
-  background: #fff;
   font-family: "Open Sans", system-ui;
-
-  @include mixins.transition();
+  background: #fff url("@/images/example.svg");
 }

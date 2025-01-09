@@ -84,7 +84,7 @@ export default (env, argv) => {
                     }
                 },
                 {
-                    test: /\.(png|jpe?g|gif|svg)$/i,
+                    test: /\.(png|jpe?g|gif|svg|webp|avif)$/i,
                     type: 'asset/resource',
                     exclude: resolveDir('src/fonts'),
                     generator: {
@@ -119,7 +119,7 @@ export default (env, argv) => {
             compress: isProduction,
             port: 9000,
             watchFiles: [
-                './src/*.html'
+                './src/**/*.(html|svg)'
             ],
             hot: true,
             open: true
