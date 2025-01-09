@@ -2,13 +2,28 @@
 @use "@/styles/helpers/mixins";
 
 
-h1 {
+.page-content {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  font-size: 30px;
-  color: vars.$colorPrimary;
+  height: inherit;
 
-  @include mixins.transition()
+  &_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+    color: vars.$colorPrimary;
+    opacity: 0;
+    visibility: hidden;
+
+    @include mixins.transition();
+
+    &-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }

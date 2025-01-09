@@ -4,8 +4,12 @@ import pluginJest from "eslint-plugin-jest";
 
 
 export default [
-    eslint.configs.recommended,
     {
+        ...eslint.configs.recommended,
+        ignores: [
+            "dist/*",
+            "node_modules/*"
+        ],
         languageOptions: {
             ecmaVersion: "latest",
             sourceType: "module"
