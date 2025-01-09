@@ -42,7 +42,7 @@ export default (env, argv) => {
                     }
                 },
                 {
-                    test: /\.scss$/i,
+                    test: /\.s[ac]ss$/i,
                     use: [
                         {
                             loader: MiniCssExtractPlugin.loader
@@ -84,7 +84,7 @@ export default (env, argv) => {
                     }
                 },
                 {
-                    test: /\.(png|jpe?g|gif|svg)$/i,
+                    test: /\.(png|jpe?g|gif|svg|webp|avif)$/i,
                     type: 'asset/resource',
                     exclude: resolveDir('src/fonts'),
                     generator: {
@@ -101,7 +101,7 @@ export default (env, argv) => {
                 template: resolveDir('src/templates/index.html'),
                 inject: 'body'
             }),
-            ...(isProduction || env.lint ? [
+            ...(env.lint ? [
                 new StylelintPlugin(),
                 new ESLintPlugin({
                     configType: 'flat'
@@ -119,10 +119,10 @@ export default (env, argv) => {
             compress: isProduction,
             port: 9000,
             watchFiles: [
-                './src/*.html'
+                resolveDir('src/**/*.(html|svg)')
             ],
             hot: true,
             open: true
         }
-    }
-}
+    };
+};
