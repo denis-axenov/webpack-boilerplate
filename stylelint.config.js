@@ -1,8 +1,5 @@
 export default {
     extends: "stylelint-config-standard",
-    plugins: [
-        "stylelint-scss"
-    ],
     customSyntax: "postcss-scss",
     rules: {
         "annotation-no-unknown": [
